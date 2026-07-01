@@ -1,26 +1,18 @@
 import sys
-from PySide6.QtWidgets import QApplication, QLabel, QMainWindow
+
+from PySide6.QtWidgets import QApplication
+
+from main_window import MainWindow
 
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
+def main():
+    app = QApplication(sys.argv)
 
-        self.setWindowTitle("PixelGlyph")
-        self.setMinimumSize(900, 600)
+    window = MainWindow()
+    window.show()
 
-        label = QLabel(
-            "PixelGlyph\n\nCreated by Benjamin Wilson\n© 2026 Benjamin Wilson"
-        )
-        label.setStyleSheet("font-size: 24px;")
-        label.setMargin(30)
-
-        self.setCentralWidget(label)
+    sys.exit(app.exec())
 
 
-app = QApplication(sys.argv)
-
-window = MainWindow()
-window.show()
-
-sys.exit(app.exec())
+if __name__ == "__main__":
+    main()
